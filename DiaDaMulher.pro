@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    formulario.cpp
+    formulario.cpp \
+    file.cpp
 
 HEADERS  += mainwindow.h \
-    formulario.h
+    formulario.h \
+    file.h
 
 FORMS    += mainwindow.ui

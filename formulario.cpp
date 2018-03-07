@@ -40,16 +40,23 @@ float Formulario::getAltura() const {
     return altura;
 }
 
-void Formulario::setAltura(float value) {
-    altura = value;
+void Formulario::setAltura(QString value) {
+    const int num = value.indexOf(',');
+    // Se não utilizou vírgula, ele não precisa ser corrigido
+    if (num >= 0)
+        value.replace(num, 1, QString("."));
+    altura = value.toFloat();
 }
 
 float Formulario::getPeso() const {
     return peso;
 }
 
-void Formulario::setPeso(float value) {
-    peso = value;
+void Formulario::setPeso(QString value) {
+    const int num = value.indexOf(',');
+    // Se não utilizou vírgula, ele não precisa ser corrigido
+    if (num >= 0) value.replace(num, 1, QString("."));
+    peso = value.toFloat();
 }
 
 float Formulario::getImc() const {
@@ -61,11 +68,10 @@ void Formulario::setImc(float value) {
 }
 
 QString Formulario::calculaIMC() {
-    //TODO: Implementar a função
     float imc = (float)this->getPeso() / (this->getAltura() * this->getAltura());
+    this->setImc(imc);
     QString num;
     num.setNum(imc);
-    //num.append(" ");
     return num;
 }
 

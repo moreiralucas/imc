@@ -2,6 +2,7 @@
 #define FORMULARIO_H
 
 #include <QMainWindow>
+#include <QDebug>
 
 class Formulario
 {
@@ -21,15 +22,15 @@ public:
     std::string getData_de_nascimento() const;
     void setData_de_nascimento(const std::string &value);
     bool getSexo() const;
-    void setSexo(bool value);
+    void setSexo(bool);
     int getIdade() const;
-    void setIdade(int value);
+    void setIdade(int);
     float getAltura() const;
-    void setAltura(float value);
+    void setAltura(QString);
     float getPeso() const;
-    void setPeso(float value);
+    void setPeso(QString);
     float getImc() const;
-    void setImc(float value);
+    void setImc(float);
     QString calculaIMC();
     void limpa_dados();
 };

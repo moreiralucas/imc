@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Dia internacional da Mulher</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="btn_salvar">
@@ -25,91 +25,6 @@
     </property>
     <property name="text">
      <string>Salvar</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_peso">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>150</y>
-      <width>54</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Peso:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="input_peso">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>170</y>
-      <width>113</width>
-      <height>27</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_idade">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>70</y>
-      <width>54</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Idade:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_result_idade">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>100</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_imc">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>230</y>
-      <width>54</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IMC:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_result_imc">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>260</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_limpar">
@@ -193,23 +108,16 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="title">
-        <string/>
+        <string>Sexo:</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item alignment="Qt::AlignLeft">
-         <widget class="QLabel" name="lb_sexo">
-          <property name="text">
-           <string>Sexo:</string>
-          </property>
-         </widget>
-        </item>
         <item>
          <widget class="QRadioButton" name="rdBtn_1">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
-           <string>Masculino</string>
+           <string>Feminino</string>
           </property>
          </widget>
         </item>
@@ -219,11 +127,71 @@
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
-           <string>Feminino</string>
+           <string>Masculino</string>
           </property>
          </widget>
         </item>
        </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>70</y>
+      <width>135</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLabel" name="lb_idade">
+       <property name="text">
+        <string>Idade:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lb_result_idade">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lb_peso">
+       <property name="text">
+        <string>Peso:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="input_peso"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="lb_imc">
+       <property name="text">
+        <string>IMC:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lb_result_imc">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </item>
     </layout>
@@ -235,15 +203,9 @@
      <x>0</x>
      <y>0</y>
      <width>405</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuDia_internacional_da_mulher">
-    <property name="title">
-     <string>Dia internacional da mulher</string>
-    </property>
-   </widget>
-   <addaction name="menuDia_internacional_da_mulher"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

@@ -9,13 +9,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     tmp = new Formulario();
-
-    // Recolher a formatação de números utilizada para a língua Portuguesa
-    QLocale brasil(QLocale::Portuguese);
-    loc.setNumberOptions(brasil.numberOptions());
-
-    // Define como valor por defeito
-    QLocale::setDefault(loc);
 }
 
 MainWindow::~MainWindow()
@@ -49,7 +42,7 @@ void MainWindow::on_input_nasc_editingFinished() {
        current_month = current_month + 12;
     }
     int calculated_year = current_year - birth_year;
-    tmp->setIdade(calculated_year);
+    tmp->setIdade(calculated_year); // Atribui valor a variável idade
 
     QString num;
     num.setNum(calculated_year);
@@ -65,24 +58,35 @@ void MainWindow::on_input_nasc_editingFinished() {
 
 
 void MainWindow::on_rdBtn_1_clicked() {
-    tmp->setSexo(false);
-    // qDebug() << tmp->getSexo();
-}
-
-void MainWindow::on_rdBtn_2_clicked() {
     tmp->setSexo(true);
 }
 
+void MainWindow::on_rdBtn_2_clicked() {
+    tmp->setSexo(false);
+}
+
 void MainWindow::on_input_altura_editingFinished() {
-    tmp->setAltura(ui->input_altura->text().toFloat());
+    tmp->setAltura(ui->input_altura->text());
     if (tmp->getPeso() != 0) {
         ui->lb_result_imc->setText(tmp->calculaIMC());
     }
 }
 
 void MainWindow::on_input_peso_editingFinished() {
-    tmp->setPeso(ui->input_peso->text().toFloat());
+    tmp->setPeso(ui->input_peso->text());
     if (tmp->getAltura() != 0) {
         ui->lb_result_imc->setText(tmp->calculaIMC());
     }
+}
+
+bool MainWindow::eventFilter(QObject *target, QEvent *event) {
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+        if (keyEvent->key() == Qt::Key_Escape) {
+            this->close();
+            qDebug() << "Esc was pressioned!";
+            return QMainWindow::eventFilter(target,event);
+        }
+    }
+    return QMainWindow::eventFilter(target,event);
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include <QDateTimeEdit>
+#include <QKeyEvent>
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    bool eventFilter(QObject *target, QEvent *event);
 
 private slots:
     void on_btn_salvar_clicked();
