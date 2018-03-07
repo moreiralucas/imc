@@ -14,6 +14,7 @@ private:
     float altura;
     float peso;
     float imc;
+    QString categoriaIMC;
 public:
     Formulario();
     ~Formulario();
@@ -33,6 +34,10 @@ public:
     void setImc(float);
     QString calculaIMC();
     void limpa_dados();
+    QString get_datas_QString();
+    void set_categoriaIMC();
+    QString getCategoriaIMC() const;
+    void setCategoriaIMC();
 };
 
 #endif // FORMULARIO_H

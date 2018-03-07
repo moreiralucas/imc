@@ -72,8 +72,10 @@ QString Formulario::calculaIMC() {
     this->setImc(imc);
     QString num;
     num.setNum(imc);
+    this->setCategoriaIMC();
     return num;
 }
+
 
 void Formulario::limpa_dados() {
     this->nome_do_paciente = "";
@@ -82,4 +84,36 @@ void Formulario::limpa_dados() {
     this->altura = 0;
     this->peso = 0;
     this->imc = 0;
+}
+
+QString Formulario::get_datas_QString() {
+    QString nome = QString::fromStdString(this->getNome_do_paciente());
+    QString data = QString::fromStdString(this->getData_de_nascimento());
+    QString sexo; sexo = (this->getSexo()?"F":"M");
+    QString idade; idade.setNum(this->getIdade());
+    QString altura; altura.setNum(this->getAltura());
+    QString peso; peso.setNum(this->getPeso());
+    QString imc; imc.setNum(this->getImc());
+
+    return nome + "," + data + "," + sexo + "," + idade + "," +
+            altura + "," + peso + "," + imc;
+}
+
+QString Formulario::getCategoriaIMC() const {
+    return categoriaIMC;
+}
+
+void Formulario::setCategoriaIMC() {
+    if (this->getImc() <= 18.4)
+        categoriaIMC = "Baixo peso";
+    else if (this->getImc() < 25)
+        categoriaIMC = "Eutrofia";
+    else if(this->getImc() < 30)
+        categoriaIMC = "Sobrepeso";
+    else if(this->getImc() < 35)
+        categoriaIMC = "Obesidade grau 1";
+    else if(this->getImc() < 40)
+        categoriaIMC = "Obesidade grau 2";
+    else
+        categoriaIMC = "Obesidade grau 3";
 }
