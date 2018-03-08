@@ -30,6 +30,10 @@ private slots:
     void on_btn_limpar_clicked();
     void update_page();
 
+    void on_input_CC_editingFinished();
+
+    void on_input_CQ_editingFinished();
+
 private:
     // QWidget *nw = new QWidget();
     Ui::MainWindow *ui;

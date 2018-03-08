@@ -14,7 +14,11 @@ private:
     float altura;
     float peso;
     float imc;
+    float cc;
+    float cq;
+    float rcq;
     QString categoriaIMC;
+    QString categoriaRCQ;
 public:
     Formulario();
     ~Formulario();
@@ -38,6 +42,15 @@ public:
     void set_categoriaIMC();
     QString getCategoriaIMC() const;
     void setCategoriaIMC();
+    float getCc() const;
+    void setCc(QString value);
+    float getCq() const;
+    void setCq(QString value);
+    QString getCategoriaRCQ() const;
+    void setCategoriaRCQ();
+    QString calculaRCQ();
+    float getRcq() const;
+    void setRcq(float value);
 };
 
 #endif // FORMULARIO_H

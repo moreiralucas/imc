@@ -14,14 +14,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->input_nome->setFocus();
 }
 
+MainWindow::~MainWindow() {
+    delete ui;
+}
+
 void MainWindow::update_page() {
     ui->input_nome->clear();
     ui->input_nasc->clear();
     ui->input_altura->clear();
     ui->input_peso->clear();
+    ui->input_CC->clear();
+    ui->input_CQ->clear();
     ui->lb_result_imc->clear();
     ui->lb_result_idade->clear();
     ui->lb_categoria_imc->clear();
+    ui->lb_categoria_RCQ->clear();
+    ui->lb_result_rcq->clear();
 
     // POG para desmarcar o "radiobutton"
     ui->rdBtn_1->setAutoExclusive(false);
@@ -32,10 +40,6 @@ void MainWindow::update_page() {
     ui->rdBtn_2->setAutoExclusive(true);
     // Fim do POG
     ui->input_nome->setFocus();
-}
-
-MainWindow::~MainWindow() {
-    delete ui;
 }
 
 void MainWindow::on_btn_salvar_clicked() {
@@ -99,7 +103,6 @@ void MainWindow::on_input_altura_editingFinished() {
         ui->lb_result_imc->setText(tmp->calculaIMC());
         ui->lb_categoria_imc->setText(tmp->getCategoriaIMC());
     }
-    // qDebug() << tmp->getCategoriaIMC();
 }
 
 void MainWindow::on_input_peso_editingFinished() {
@@ -125,4 +128,20 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event) {
 void MainWindow::on_btn_limpar_clicked() {
     this->update_page();
     tmp->limpa_dados();
+}
+
+void MainWindow::on_input_CC_editingFinished() {
+    tmp->setCc(ui->input_CC->text());
+    if (tmp->getCq() != 0) {
+        ui->lb_result_rcq->setText(tmp->calculaRCQ());
+        ui->lb_categoria_RCQ->setText(tmp->getCategoriaRCQ());
+    }
+}
+
+void MainWindow::on_input_CQ_editingFinished() {
+    tmp->setCq(ui->input_CQ->text());
+    if (tmp->getCc() != 0) {
+        ui->lb_result_rcq->setText(tmp->calculaRCQ());
+        ui->lb_categoria_RCQ->setText(tmp->getCategoriaRCQ());
+    }
 }

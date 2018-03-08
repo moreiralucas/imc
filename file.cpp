@@ -12,11 +12,11 @@ void file::create_file() {
         QFile file(this->path_file);
         if ( file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text) ) {
             QTextStream stream( &file );
-            stream << "nome_do_paciente,data_de_nascimento,sexo,idade,altura,peso,imc" << endl;
-            qDebug() << "Consegui Criar o arquivo\0/!";
+            stream << "nome_do_paciente,data_de_nascimento,sexo,idade,altura,peso,imc,cc,cq,rcq" << endl;
+            qDebug() << "Arquivo criado com sucesso! \0/";
         }
         else {
-            qDebug() << "Deu merda ao criar o arquivo!";
+            qDebug() << "Algo deu errado ao tentar criar o arquivo!";
         }
     }
 }
@@ -39,7 +39,7 @@ void file::write(QString str){
     if ( file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text) ) {
         QTextStream stream( &file );
         stream << str << endl;
-        qDebug() << "Consegui Escrever no arquivo\0/!";
+        qDebug() << "Consegui escrever no arquivo\0/!";
     }
 
 }
